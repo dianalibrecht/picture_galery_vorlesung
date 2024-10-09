@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:picture_galery_vorlesung/screens/achtung_kurve_details.dart';
 import 'package:picture_galery_vorlesung/screens/custom_details_screen.dart';
 import 'package:picture_galery_vorlesung/widgets/trip_card.dart';
 
