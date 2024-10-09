@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:picture_galery_vorlesung/widgets/achtung_curve_cart.dart';
-import 'package:picture_galery_vorlesung/widgets/adrenalin_pur_card.dart';
-import 'package:picture_galery_vorlesung/widgets/ball_game_card.dart';
-import 'package:picture_galery_vorlesung/widgets/bunter_basektball_card.dart';
-import 'package:picture_galery_vorlesung/widgets/runners_high_card.dart';
-import 'package:picture_galery_vorlesung/widgets/sieg_card.dart';
-import 'package:picture_galery_vorlesung/widgets/swish_card.dart';
-import 'package:picture_galery_vorlesung/widgets/tor_card.dart';
+import 'package:picture_galery_vorlesung/galery_screen.dart';
+import 'package:picture_galery_vorlesung/ueber_mich_screen.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  int currentPageIndex = 0;
+
+  final List<Widget> screens = [
+    const GaleryScreen(),
+    const UeberMichScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,20 +27,15 @@ class MainApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Meine Bilder Gallerie"),
         ),
-        body: GridView(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            children: const <Widget>[
-              BunterBasektballCard(),
-              AdrenalinPurCard(),
-              AchtungCurveCart(),
-              RunnersHighCard(),
-              SwishCard(),
-              BallGameCard(),
-              SiegCard(),
-              TorCard(),
-            ]),
+        body: screens[currentPageIndex],
         bottomNavigationBar: NavigationBar(
+          indicatorColor: Colors.grey,
+          selectedIndex: currentPageIndex,
+          onDestinationSelected: (int newindex) {
+            setState(() {
+              currentPageIndex = newindex;
+            });
+          },
           destinations: const [
             NavigationDestination(
                 icon: Icon(Icons.picture_in_picture_alt_outlined),
