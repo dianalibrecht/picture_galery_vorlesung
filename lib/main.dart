@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:picture_galery_vorlesung/galery_screen.dart';
-import 'package:picture_galery_vorlesung/ueber_mich_screen.dart';
+import 'package:picture_galery_vorlesung/screens/galery_screen.dart';
+import 'package:picture_galery_vorlesung/screens/ueber_mich_screen.dart';
 
 void main() {
   runApp(const MainApp());

@@ -21,7 +21,9 @@ class CustomCardWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => CustomDetailsScreen(
-                      title: text, description: description)));
+                      title: text,
+                      imagePath: imagePath,
+                      description: description)));
         },
         child: TripCard(imagePath: imagePath, text: text));
   }

@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class CustomDetailsScreen extends StatelessWidget {
   final String title;
   final String description;
+  final String imagePath;
 
   const CustomDetailsScreen(
-      {super.key, required this.title, required this.description});
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.imagePath});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +23,10 @@ class CustomDetailsScreen extends StatelessWidget {
             ),
             title: Text(title),
           ),
-          body: Center(child: Text(description))),
+          body: Column(children: [
+            Image.asset(imagePath, fit: BoxFit.cover),
+            Text(description)
+          ])),
     );
   }
 }
